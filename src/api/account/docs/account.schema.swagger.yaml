@@ -1,0 +1,49 @@
+components:
+  schemas:
+    Account:
+      type: object
+      required:
+        - fullName
+        - email
+        - password
+      properties:
+        id:
+          readOnly: true
+          type: integer
+          example: 1
+        fullName:
+          type: string
+          maxLength: 100
+          description: Required. 100 characters or fewer.
+          example: Maria Silva
+        email:
+          type: string
+          maxLength: 100
+          description: Required. 100 characters or fewer.
+          example: some_mail@mail.com
+        password:
+          writeOnly: true
+          type: string
+          maxLength: 255
+          description: Required. 255 characters or fewer.
+          example: abcded!2@
+        role:
+          type: string
+          description: Optional. User role, default to NURSE
+          enum:
+            - NURSE
+            - DOCTOR
+            - LAB_TECHNICIAN
+        createdAt:
+          readOnly: true
+          type: string
+          format: date-time
+          example: "2024-06-18T22:08:44.220Z"
+          description: Read-only. Date and time of the resource creation
+        updatedAt:
+          readOnly: true
+          type: string
+          format: date-time
+          example: "2024-06-18T22:08:44.220Z"
+          description: Read-only. Date and time of the resource update
+
